@@ -7,6 +7,8 @@ tested by QA team and are therefore not in scope for bug bounty programs.
 Provided instructions are intended for developers that would like to use
 Mac OS development tools.
 
+NOTE: MacOS is not fully supported
+
 ### Prerequirements
 
 1.  Install Xcode from the app store
