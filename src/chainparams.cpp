@@ -115,7 +115,7 @@ public:
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S(
-            "000000000000000000000000000000000000000000a0f3064330647e2f6c4828");
+            "0000000000000000000000000000000000000000000000000000000100010001");
 
         // By default assume that the signatures in ancestors of this block are
         // valid.
@@ -136,15 +136,15 @@ public:
          * normal data. The characters are rarely used upper ASCII, not valid as
          * UTF-8, and produce a large 32-bit integer with any alignment.
          */
-        diskMagic[0] = 0xf9;
-        diskMagic[1] = 0xbe;
-        diskMagic[2] = 0xb4;
-        diskMagic[3] = 0xd9;
-        netMagic[0] = 0xe3;
-        netMagic[1] = 0xe1;
-        netMagic[2] = 0xf3;
-        netMagic[3] = 0xe8;
-        nDefaultPort = 8333;
+        diskMagic[0] = 0xc0;
+        diskMagic[1] = 0xcb;
+        diskMagic[2] = 0x7f;
+        diskMagic[3] = 0xde;
+        netMagic[0] = 0xb4;
+        netMagic[1] = 0xee;
+        netMagic[2] = 0xd3;
+        netMagic[3] = 0x9f;
+        nDefaultPort = 12688;
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1231006505, 2083236893, 0x1d00ffff, 1,
@@ -159,12 +159,12 @@ public:
 
         // Note that of those with the service bits flag, most only support a
         // subset of possible options.
-        // Bitcoin SV seeder
-        vSeeds.push_back(CDNSSeedData("bitcoinsv.io", "seed.bitcoinsv.io", true));
-        // cascharia.com
-        vSeeds.push_back(CDNSSeedData("cascharia.com", "seed.cascharia.com", true));
-        // satoshisvision.network
-        vSeeds.push_back(CDNSSeedData("satoshisvision.network", "seed.satoshisvision.network", true));
+        // BitWeb AE Seeder (b1t.ae)
+        // vSeeds.push_back(CDNSSeedData("b1t.ae", "seed.b1t.ae", true));
+        // BitWeb Core Seeder (bitweb.org)
+        // vSeeds.push_back(CDNSSeedData("bitweb.org", "seed.bitweb.org", true));
+        // BitWeb Foundation Seeder (bitweb.foundation)
+        // vSeeds.push_back(CDNSSeedData("bitweb.foundation", "bitweb.foundation", true));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<uint8_t>(1, 0);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<uint8_t>(1, 5);
@@ -180,43 +180,7 @@ public:
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
 
-        checkpointData = { {
-                {11111, uint256S("0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee"
-                                 "92559f542fdb26e7c1d")},
-                {33333, uint256S("000000002dd5588a74784eaa7ab0507a18ad16a236e7b"
-                                 "1ce69f00d7ddfb5d0a6")},
-                {74000, uint256S("0000000000573993a3c9e41ce34471c079dcf5f52a0e8"
-                                 "24a81e7f953b8661a20")},
-                {105000, uint256S("00000000000291ce28027faea320c8d2b054b2e0fe44"
-                                  "a773f3eefb151d6bdc97")},
-                {134444, uint256S("00000000000005b12ffd4cd315cd34ffd4a594f430ac"
-                                  "814c91184a0d42d2b0fe")},
-                {168000, uint256S("000000000000099e61ea72015e79632f216fe6cb33d7"
-                                  "899acb35b75c8303b763")},
-                {193000, uint256S("000000000000059f452a5f7340de6682a977387c1701"
-                                  "0ff6e6c3bd83ca8b1317")},
-                {210000, uint256S("000000000000048b95347e83192f69cf0366076336c6"
-                                  "39f9b7228e9ba171342e")},
-                {216116, uint256S("00000000000001b4f4b433e81ee46494af945cf96014"
-                                  "816a4e2370f11b23df4e")},
-                {225430, uint256S("00000000000001c108384350f74090433e7fcf79a606"
-                                  "b8e797f065b130575932")},
-                {250000, uint256S("000000000000003887df1f29024b06fc2200b55f8af8"
-                                  "f35453d7be294df2d214")},
-                {279000, uint256S("0000000000000001ae8c72a0b0c301f67e3afca10e81"
-                                  "9efa9041e458e9bd7e40")},
-                {295000, uint256S("00000000000000004d9b4ef50f0f9d686fd69db2e03a"
-                                  "f35a100370c64632a983")},
-                // UAHF fork block.
-                {478558, uint256S("0000000000000000011865af4122fe3b144e2cbeea86"
-                                  "142e8ff2fb4107352d43")},
-                // Nov, 13 DAA activation block.
-                {504031, uint256S("0000000000000000011ebf65b60d0a3de80b8175be70"
-                                  "9d653b4c1a1beeb6ab9c")},
-                // Monolith activation.
-                {530359, uint256S("0000000000000000011ada8bd08f46074f44a8f15539"
-                                  "6f43e38acf9501c49103")}
-            }};
+        checkpointData = {};
 
         // Data as of block
         // 000000000000000001d2ce557406b017a928be25ee98906397d339c3f68eec5d
@@ -309,7 +273,7 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("bitcoinsv.io", "stn-seed.bitcoinsv.io", true));
+        // vSeeds.push_back(CDNSSeedData("b1t.ae", "stn-seed.b1t.ae", true));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<uint8_t>(1, 111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<uint8_t>(1, 196);
@@ -324,14 +288,7 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
 
-        checkpointData = {  { 
-                {0, uint256S("000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943")},
-                {1, uint256S("00000000e23f9436cc8a6d6aaaa515a7b84e7a1720fc9f92805c0007c77420c4")},
-                {2, uint256S("0000000040f8f40b5111d037b8b7ff69130de676327bcbd76ca0e0498a06c44a")},
-                {4, uint256S("00000000d33661d5a6906f84e3c64ea6101d144ec83760bcb4ba81edcb15e68d")},
-                {5, uint256S("00000000e9222ebe623bf53f6ec774619703c113242327bdc24ac830787873d6")},
-                {6, uint256S("00000000764a4ff15c2645e8ede0d0f2af169f7a517dd94a6778684ed85a51e4")}
-        }};
+        checkpointData = {};
 
         defaultBlockSizeParams = DefaultBlockSizeParams{
             // activation time 
@@ -422,9 +379,9 @@ public:
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
         // Bitcoin SV seeder
-        vSeeds.push_back(CDNSSeedData("bitcoinsv.io", "testnet-seed.bitcoinsv.io", true));
-        vSeeds.push_back(CDNSSeedData("cascharia.com", "testnet-seed.cascharia.com", true));
-        vSeeds.push_back(CDNSSeedData("bitcoincloud.net", "testnet-seed.bitcoincloud.net", true));
+        vSeeds.push_back(CDNSSeedData("b1t.ae", "testnet-seed.b1t.ae", true));
+        vSeeds.push_back(CDNSSeedData("bitweb.org", "testnet-seed.bitweb.org", true));
+        vSeeds.push_back(CDNSSeedData("bitweb.foundation", "testnet-seed.bitweb.foundation", true));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<uint8_t>(1, 111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<uint8_t>(1, 196);
@@ -439,16 +396,7 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
 
-        checkpointData = { {
-                {546, uint256S("000000002a936ca763904c3c35fce2f3556c559c0214345"
-                               "d31b1bcebf76acb70")},
-                // UAHF fork block.
-                {1155875, uint256S("00000000f17c850672894b9a75b63a1e72830bbd5f4"
-                                   "c8889b5c1a80e7faef138")},
-                // Nov, 13. DAA activation block.
-                {1188697, uint256S("0000000000170ed0918077bde7b4d36cc4c91be69fa"
-                                   "09211f748240dabe047fb")}
-            }};
+        checkpointData = {};
 
         // Data as of block
         // 000000000005b07ecf85563034d13efd81c1a29e47e22b20f4fc6919d5b09cd6
